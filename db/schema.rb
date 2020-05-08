@@ -10,6 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20200508002310) do
+
+  create_table "songs", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "released"
+    t.integer  "release_year"
+    t.string   "artist_name"
+    t.string   "genre"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["title", "artist_name", "release_year"], name: "index_songs_on_title_and_artist_name_and_release_year", unique: true
+  end
 
 end
